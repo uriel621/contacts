@@ -17,16 +17,16 @@ ever.controller("AppCtrl", ["$scope", "$http", function ($scope, $http) {
         console.log($scope.contact)
 
         $http.post("/contactList", $scope.contact).then(function (response) {
-            console.log(response)
+            console.log("===ADDED CONTACT===", response)
             refresh()
         })
     }
 
     $scope.deleteContact = function (id) {
         console.log(id)
-        $http.delete("/contactList/:id" + id).then(function(response){
-            console.log(response)
-            refresh()
+        $http.delete("/contactList/" + id).then(function(response){
+        console.log("===DELETED CONTACT===", response)
+        refresh()
         })
         
     }
